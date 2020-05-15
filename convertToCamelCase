@@ -1,0 +1,23 @@
+function titleCase(str) {
+  let arr = str.split(" "), res = '',ci = 0;
+  for(let i = 0; i< arr.length ; i++){
+    let inner = arr[i];
+    for(let j = 0 ; j < inner.length ; j++){
+      ci = inner.charCodeAt(j);
+      if(j == 0 && ci > 96 && ci < 123){
+          res += String.fromCharCode(ci - 32);
+      }else if(j != 0 && ci > 64 && ci < 91 ){
+        res += String.fromCharCode(ci + 32);
+      }else{
+        res += inner[j];
+      }
+    }
+    if(i == arr.length-1){
+       return res;
+    }else{
+      res += " ";
+    }
+  }
+}
+
+titleCase("sHoRt AnD sToUt");
